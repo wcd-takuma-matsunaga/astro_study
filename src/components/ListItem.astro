@@ -1,0 +1,45 @@
+---
+import type { Photo } from '../types/api'
+
+type Props = {
+  id: Photo['id']
+  title: Photo['title']
+  url: Photo['url']
+}
+
+const { id, title, url } = Astro.props
+---
+
+<li>
+  <a href={`/photo/${id}`}>
+    <img src={url} alt={title} />
+    <div class="title-wrapper">
+      <h2>{title}</h2>
+    </div>
+  </a>
+</li>
+
+<style>
+  li {
+    width: 30%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    list-style: none;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    background: #eee;
+  }
+
+  .title-wrapper {
+    padding: 16px 8px;
+  }
+
+  h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+</style>
