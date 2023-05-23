@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import ListItem from '../components/ListItem.astro'
 import type { Photos } from '../types/api'
+import MoveTopButton from '../components/MoveTopButton';
 
 const getRandomNumber = () => Math.floor(Math.random() * 2) + 1;
 
@@ -20,6 +21,7 @@ const photos: Photos = await response.json()
         ))
       }
     </ul>
+		<MoveTopButton client:visible />
   </main>
 </Layout>
 
